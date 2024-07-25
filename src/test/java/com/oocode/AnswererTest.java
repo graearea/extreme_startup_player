@@ -40,4 +40,11 @@ class AnswererTest {
 
         assertThat(content, equalTo("4096"));
     }
+
+    @Test
+    void squarePowered() {
+        var content = new Answerer().answerFor("What is 4 to the power of 2?");
+
+        assertThat(content, equalTo("16"));
+    }
 }

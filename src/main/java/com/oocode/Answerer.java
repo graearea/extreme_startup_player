@@ -19,8 +19,22 @@ public class Answerer {
             return multNumbers(question, regex);
         } else if(question.contains("square")) {
             return squareAndCubeNumbers(question, regex);
+        } else if(question.contains("power")) {
+            return powerNumbers(question, regex);
         }
         return "no";
+    }
+
+    private String powerNumbers(String question, Pattern regex) {
+        var matcher = regex.matcher(question);
+        matcher.find();
+        double first =  Double.parseDouble(matcher.group() + "");
+        matcher.find();
+        double second = Double.parseDouble(matcher.group() + "");
+
+        return ((int)(Math.pow(first, second))) + "";
+
+
     }
 
     private String squareAndCubeNumbers(String question, Pattern regex) {
