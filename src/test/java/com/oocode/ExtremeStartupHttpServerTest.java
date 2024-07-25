@@ -8,31 +8,31 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 
-public class ExtremeStartupHttpServerTest {
+class ExtremeStartupHttpServerTest {
     private ExtremeStartupHttpServer server;
 
     @Test
-    public void canAnswerMyName() throws Exception {
+    void canAnswerMyName() throws Exception {
         var contents = new SimpleHttpClient().readUrl("http://127.0.0.1:9123?q=What+is+your+name%3F");
 
-        assertThat(contents, equalTo("Someone"));
+        assertThat(contents, equalTo("JaeRae"));
     }
 
     @Test
-    public void showsHomePageIfMissingQueryString() throws Exception {
+    void showsHomePageIfMissingQueryString() throws Exception {
         var contents = new SimpleHttpClient().readUrl("http://127.0.0.1:9123");
 
         assertThat(contents, containsString("<html>"));
     }
 
     @BeforeEach
-    public void startLocalServer() {
+    void startLocalServer() {
         server = new ExtremeStartupHttpServer(9123);
         server.start();
     }
 
     @AfterEach
-    public void stopLocalServer() {
+    void stopLocalServer() {
         server.stop();
     }
 }
