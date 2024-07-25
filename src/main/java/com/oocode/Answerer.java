@@ -21,8 +21,20 @@ public class Answerer {
             return squareAndCubeNumbers(question, regex);
         } else if(question.contains("power")) {
             return powerNumbers(question, regex);
+        } else if(question.contains("minus")) {
+            return minusNumbers(question, regex);
         }
         return "no";
+    }
+
+    private String minusNumbers(String question, Pattern regex) {
+        var matcher = regex.matcher(question);
+        matcher.find();
+        double first =  Double.parseDouble(matcher.group() + "");
+        matcher.find();
+        double second = Double.parseDouble(matcher.group() + "");
+
+        return String.valueOf((int)(first - second));
     }
 
     private String powerNumbers(String question, Pattern regex) {
@@ -32,7 +44,7 @@ public class Answerer {
         matcher.find();
         double second = Double.parseDouble(matcher.group() + "");
 
-        return ((int)(Math.pow(first, second))) + "";
+        return (int)(Math.pow(first, second)) + "";
 
 
     }

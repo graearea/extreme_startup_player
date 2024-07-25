@@ -28,6 +28,13 @@ class AnswererTest {
     }
 
     @Test
+    void minus() {
+        var contents = new Answerer().answerFor("What is 35 minus 26?");
+
+        assertThat(contents, equalTo("9"));
+    }
+
+    @Test
     void mult() {
         var contents = new Answerer().answerFor("What is 53 multiplied by 95?");
 
