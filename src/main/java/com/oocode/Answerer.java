@@ -17,8 +17,24 @@ public class Answerer {
 
         } else if (question.contains("multiplied")) {
             return multNumbers(question, regex);
+        } else if(question.contains("square")) {
+            return squareAndCubeNumbers(question, regex);
         }
         return "no";
+    }
+
+    private String squareAndCubeNumbers(String question, Pattern regex) {
+        var matcher = regex.matcher(question);
+
+        while (matcher.find()) {
+            int num = Integer.parseInt(matcher.group());
+            int sqrt = (int) Math.sqrt(num);
+            if (sqrt * sqrt == num) {
+                return num + "";
+            }
+        }
+
+        return null;
     }
 
     private String multNumbers(String question, Pattern regex) {
