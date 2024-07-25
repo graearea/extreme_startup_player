@@ -12,6 +12,12 @@ class AnswererTest {
 
         assertThat(contents, equalTo("JaeRae"));
     }
+  @Test
+    void primoes() {
+        var contents = new Answerer().answerFor("Which of the following numbers are primes: 92, 76, 5, 47, 93?");
+
+        assertThat(contents, equalTo("5"));
+    }
 
     @Test
     void picksBiggestNumber() {

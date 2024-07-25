@@ -23,8 +23,30 @@ public class Answerer {
             return powerNumbers(question, regex);
         } else if(question.contains("minus")) {
             return minusNumbers(question, regex);
+        } else if(question.contains("primes")) {
+            return primes(question, regex);
         }
         return "no";
+    }
+
+    private String primes(String question, Pattern regex) {
+        var matcher = regex.matcher(question);
+        while (matcher.find()) {
+            String group = matcher.group();
+            if (isPrime(group)){
+                return group;
+            }
+        }
+        return matcher.group();
+    }
+
+    private boolean isPrime(String group) {
+        int anum = Integer.parseInt(group);
+        for (int i = 2; i<=Math.sqrt(anum); i++){
+            if (anum % i ==0)
+                return false;
+        }
+        return true;
     }
 
     private String minusNumbers(String question, Pattern regex) {
@@ -40,9 +62,9 @@ public class Answerer {
     private String powerNumbers(String question, Pattern regex) {
         var matcher = regex.matcher(question);
         matcher.find();
-        double first =  Double.parseDouble(matcher.group() + "");
+        double first =  Double.parseDouble(matcher.group().toString());
         matcher.find();
-        double second = Double.parseDouble(matcher.group() + "");
+        double second = Double.parseDouble(matcher.group());
 
         return (int)(Math.pow(first, second)) + "";
 
