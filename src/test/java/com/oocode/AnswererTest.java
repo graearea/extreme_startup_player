@@ -26,4 +26,11 @@ class AnswererTest {
 
         assertThat(contents, equalTo("61"));
     }
+
+    @Test
+    void mult() {
+        var contents = new Answerer().answerFor("What is 53 multiplied by 95?");
+
+        assertThat(contents, equalTo("5035"));
+    }
 }
