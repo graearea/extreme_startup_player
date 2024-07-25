@@ -66,7 +66,7 @@ public class Answerer {
         matcher.find();
         double second = Double.parseDouble(matcher.group());
 
-        return (int)(Math.pow(first, second)) + "";
+        return (long)(Math.pow(first, second)) + "";
 
 
     }

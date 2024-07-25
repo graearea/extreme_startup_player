@@ -60,4 +60,11 @@ class AnswererTest {
 
         assertThat(content, equalTo("16"));
     }
+
+    @Test
+    void squarePowered2() {
+        var content = new Answerer().answerFor("What is 10 to the power of 10?");
+
+        assertThat(content, equalTo("10000000000"));
+    }
 }
