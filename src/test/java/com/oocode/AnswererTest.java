@@ -13,4 +13,11 @@ class AnswererTest {
 
         assertThat(contents, equalTo("JaeRae"));
     }
+
+    @Test
+    void picksBiggestNumber() {
+    var contents = new Answerer().answerFor("Which of the following numbers is the largest: 98, 77, 19?");
+
+        assertThat(contents, equalTo("98"));
+    }
 }
