@@ -30,7 +30,10 @@ public class Answerer {
             int num = Integer.parseInt(matcher.group());
             int sqrt = (int) Math.sqrt(num);
             if (sqrt * sqrt == num) {
-                return num + "";
+                int cbrt = (int) Math.cbrt(num);
+                if (cbrt * cbrt * cbrt == num) {
+                    return num + "";
+                }
             }
         }
 
